@@ -1,7 +1,6 @@
 import { createFileRoute, Link, useRouter, redirect } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { auth } from '@clerk/tanstack-react-start/server'
-import { clerkClient } from '@clerk/backend'
+import { auth, clerkClient } from '@clerk/tanstack-react-start/server'
 import { useState } from 'react'
 import { WAIVER_TEXT, WAIVER_VERSION } from '~/lib/waiver'
 

@@ -10,7 +10,7 @@
     "start": "npx srvx --prod -s dist/server/server.js"
   },
   "dependencies": {
-    "@clerk/backend": "^1.0.0",
+    "@clerk/backend": "^2.29.5",
     "@clerk/tanstack-react-start": "^0.27.14",
     "@tanstack/react-router": "^1.160.2",
     "@tanstack/react-router-devtools": "^1.160.2",

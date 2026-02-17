@@ -11,6 +11,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { auth } from '@clerk/tanstack-react-start/server'
 import * as React from 'react'
 import {
+  ClientOnly,
   HeadContent,
   Link,
   Outlet,
@@ -105,28 +106,34 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 >
                   Hours & Pricing
                 </Link>
-                <SignedIn>
-                  <Link
-                    to="/dashboard"
-                    className="text-primary-600 dark:text-primary-200 hover:underline"
-                  >
-                    Dashboard
-                  </Link>
-                  <UserButton afterSignOutUrl="/" />
-                </SignedIn>
-                <SignedOut>
-                  <SignInButton mode="modal">
-                    <button className="rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white hover:bg-primary-600">
-                      Sign In
-                    </button>
-                  </SignInButton>
-                  <Link
-                    to="/sign-up"
-                    className="rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
-                  >
-                    Sign Up
-                  </Link>
-                </SignedOut>
+                <ClientOnly
+                  fallback={
+                    <div className="h-9 w-24 animate-pulse rounded-md bg-primary-200/50 dark:bg-primary-800/50" />
+                  }
+                >
+                  <SignedIn>
+                    <Link
+                      to="/dashboard"
+                      className="text-primary-600 dark:text-primary-200 hover:underline"
+                    >
+                      Dashboard
+                    </Link>
+                    <UserButton afterSignOutUrl="/" />
+                  </SignedIn>
+                  <SignedOut>
+                    <SignInButton mode="modal">
+                      <button className="rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-white hover:bg-primary-600">
+                        Sign In
+                      </button>
+                    </SignInButton>
+                    <Link
+                      to="/sign-up"
+                      className="rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700"
+                    >
+                      Sign Up
+                    </Link>
+                  </SignedOut>
+                </ClientOnly>
               </div>
             </div>
           </div>

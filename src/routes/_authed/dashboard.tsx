@@ -1,13 +1,12 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
-import { auth } from '@clerk/tanstack-react-start/server'
+import { auth, clerkClient } from '@clerk/tanstack-react-start/server'
 
 const fetchUserWaiverStatus = createServerFn({ method: 'GET' }).handler(
   async () => {
     const { userId } = await auth()
     if (!userId) return { waiverAccepted: false }
 
-    const { clerkClient } = await import('@clerk/backend')
     const client = await clerkClient()
     const user = await client.users.getUser(userId)
     const metadata = user.publicMetadata as {
