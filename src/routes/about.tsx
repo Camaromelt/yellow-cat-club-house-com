@@ -1,0 +1,55 @@
+import { createFileRoute, Link } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/about')({
+  component: About,
+})
+
+function About() {
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-16">
+      <h1 className="text-4xl font-bold text-primary-900 dark:text-primary-100">
+        About Yellow Cat ClubHouse
+      </h1>
+      <div className="mt-8 space-y-6 text-primary-700 dark:text-primary-200">
+        <p className="text-lg leading-relaxed">
+          Yellow Cat ClubHouse is a kids gym and play place where children can
+          pretend, explore, and make new friends in a safe, padded environment.
+        </p>
+        <p>
+          Our facilities are designed with safety first—soft foam mats, cushioned
+          walls, and age-appropriate play structures let kids run, climb, and
+          tumble with confidence. From our Pretend Play Village to our Ball Pit
+          Paradise, every corner is built for imagination and active fun.
+        </p>
+        <p>
+          We believe in the power of play. When kids feel safe, they take
+          risks—climbing a bit higher, trying a new game, or making a new
+          friend. That&apos;s what Yellow Cat ClubHouse is all about.
+        </p>
+        <div className="rounded-xl border border-olive-200 bg-olive-50 p-6 dark:border-slate-600 dark:bg-primary-950/50">
+          <h2 className="text-xl font-semibold text-primary-900 dark:text-primary-100">
+            Our Mission
+          </h2>
+          <p className="mt-2">
+            To provide a welcoming, safe space where every child can play, learn,
+            and grow through imaginative and physical play.
+          </p>
+        </div>
+        <div className="flex gap-4 pt-4">
+          <Link
+            to="/sign-up"
+            className="rounded-md bg-primary-500 px-6 py-2 font-medium text-white hover:bg-primary-600"
+          >
+            Join Us
+          </Link>
+          <Link
+            to="/"
+            className="rounded-md border border-olive-300 px-6 py-2 font-medium text-primary-700 hover:bg-primary-50 dark:border-slate-600 dark:text-primary-200 dark:hover:bg-primary-900/50"
+          >
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}

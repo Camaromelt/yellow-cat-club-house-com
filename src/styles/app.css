@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+/* Custom color palette */
+@theme {
+  /* Primary blues - #5385bd, #305589 */
+  --color-primary-50: #eff4fa;
+  --color-primary-100: #dfe9f5;
+  --color-primary-200: #c0d3eb;
+  --color-primary-300: #8fb3d9;
+  --color-primary-400: #6b96c8;
+  --color-primary-500: #5385bd;
+  --color-primary-600: #305589;
+  --color-primary-700: #284771;
+  --color-primary-800: #1f3559;
+  --color-primary-900: #172441;
+  --color-primary-950: #0f1a2b;
+  /* Accent - #d3d418 */
+  --color-accent-400: #e5e638;
+  --color-accent-500: #d3d418;
+  --color-accent-600: #b8bb14;
+  /* Olive - #858948 */
+  --color-olive-50: #f5f5ed;
+  --color-olive-100: #e8e9d8;
+  --color-olive-200: #d1d3b2;
+  --color-olive-300: #b5b88a;
+  --color-olive-400: #9a9d5e;
+  --color-olive-500: #858948;
+  --color-olive-600: #6f723a;
+  --color-olive-800: #4a4d27;
+  --color-olive-950: #2a2c18;
+  /* Slate - #596f87 */
+  --color-slate-200: #b8c2ce;
+  --color-slate-400: #7a8fa0;
+  --color-slate-500: #596f87;
+  --color-slate-600: #4a5d72;
+  --color-slate-700: #3d4d5e;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-olive-200, currentcolor);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  * {
+    @apply border-olive-200 dark:border-slate-600;
+  }
+
+  html,
+  body {
+    @apply text-primary-900 bg-primary-50 dark:bg-primary-950 dark:text-primary-200;
+    font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .using-mouse * {
+    outline: none !important;
+  }
+}
